@@ -15,8 +15,8 @@ public class Lab {
     /**
      * this method create a new student with a given name and ID number
      *
-     * @param day first name of student
-     * @param capacity  last name of student
+     * @param day      first name of student
+     * @param capacity last name of student
      */
 
     public Lab(String day, int capacity) {
@@ -26,20 +26,21 @@ public class Lab {
 
     /**
      * get the student class objects as array
+     *
      * @return student class list
      */
     public Student[] getStudents() {
         return students;
     }
+
     /**
-     @param students set a list of students
+     * @param students set a list of students
      */
     public void setStudents(Student[] students) {
         this.students = students;
     }
 
     /**
-     *
      * @return average of lab
      */
     public int getAvg() {
@@ -54,11 +55,10 @@ public class Lab {
         for (int i = 0; i < students.length; i++) {
             sum += students[i].getGrade();
         }
-        this.avg = sum / students.length;
+        avg = sum / students.length;
     }
 
     /**
-     *
      * @return day of lab
      */
     public String getDay() {
@@ -66,7 +66,6 @@ public class Lab {
     }
 
     /**
-     *
      * @param day set a day for lab
      */
     public void setDay(String day) {
@@ -74,7 +73,6 @@ public class Lab {
     }
 
     /**
-     *
      * @return the capacity of lab
      */
     public int getCapacity() {
@@ -82,7 +80,6 @@ public class Lab {
     }
 
     /**
-     *
      * @param capacity set a number as lab capacity
      */
     public void setCapacity(int capacity) {
@@ -91,6 +88,7 @@ public class Lab {
 
     /**
      * this method add a student to lab
+     *
      * @param std refer to a student object
      */
     public void enrollStudent(Student std) {
@@ -106,12 +104,12 @@ public class Lab {
      * print the student description and lab average
      */
     public void print() {
-
         for (int i = 0; i < students.length; i++) {
             System.out.println("std fname: " + students[i].getFirstName()
                     + " std id:" + students[i].getId()
                     + " std grade:" + students[i].getGrade());
         }
+        calculateAvg();
         System.out.println("Lab AVG:" + getAvg());
     }
 }
