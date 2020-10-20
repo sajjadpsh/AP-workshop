@@ -46,7 +46,7 @@ public class MusicCollection {
      * @param index The index of the file to be listed.
      */
     public void listFile(int index) {
-        if(validIndex(index)) {
+        if (validIndex(index)) {
             Music filename = files.get(index);
             System.out.println(filename);
         }
@@ -56,7 +56,7 @@ public class MusicCollection {
      * Show a list of all the files in the collection.
      */
     public void listAllFiles() {
-        for(Music filename : files) {
+        for (Music filename : files) {
             System.out.println(filename);
         }
     }
@@ -67,7 +67,7 @@ public class MusicCollection {
      * @param index The index of the file to be removed.
      */
     public void removeFile(int index) {
-        if(validIndex(index)) {
+        if (validIndex(index)) {
             files.remove(index);
         }
     }
@@ -79,7 +79,7 @@ public class MusicCollection {
      * @param index The index of the file to be played.
      */
     public void startPlaying(int index) {
-        if(validIndex(index)) {
+        if (validIndex(index)) {
             Music filename = files.get(index);
             player.startPlaying(filename);
         }
@@ -105,13 +105,24 @@ public class MusicCollection {
         // Set according to whether the index is valid or not.
         boolean valid;
 
-        if(index < 0 || index >= files.size()) {
+        if (index < 0 || index >= files.size()) {
             System.out.println("Index is invalid");
             valid = false;
-        }
-        else {
+        } else {
             valid = true;
         }
         return valid;
+    }
+
+    /**
+     * List the names of files matching the given string.
+     * @param search The string to match.
+     */
+    public void search(String search) {
+        for (Music music : files) {
+            if (music.getFileName().matches(search) || music.getSinger().matches(search)) {
+                System.out.println(music);
+            }
+        }
     }
 }
