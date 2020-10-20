@@ -26,7 +26,7 @@ public class MusicPlayer {
      *
      * @param filename The file to be played.
      */
-    public void startPlaying(String filename) {
+    public void startPlaying(Music filename) {
         System.out.println(filename + " is playing...");
         isPlaying = true;
     }
