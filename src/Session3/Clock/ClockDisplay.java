@@ -52,9 +52,9 @@ public class ClockDisplay {
         seconds.increment();
         if (seconds.getValue() == 0) {     // it just rolled over!
             minutes.increment();
-        }
-        if (minutes.getValue() == 0) {  // it just rolled over!
-            hours.increment();
+            if (minutes.getValue() == 0) {  // it just rolled over!
+                hours.increment();
+            }
         }
         updateDisplay();
     }
@@ -83,6 +83,7 @@ public class ClockDisplay {
     private void updateDisplay() {
         displayString = hours.getDisplayValue() + ":" +
                 minutes.getDisplayValue() + ":" + seconds.getDisplayValue();
+        System.out.println(displayString);
     }
 }
 
