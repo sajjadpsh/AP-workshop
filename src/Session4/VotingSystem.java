@@ -55,7 +55,7 @@ public class VotingSystem {
 
     }
 
-    public void Vote(int i, Person voter, ArrayList<String> votes) {
+    public void vote(int i, Person voter, ArrayList<String> votes) {
         if(validIndex(i)) {
             votingList.get(i).vote(voter, votes);
         }
