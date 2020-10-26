@@ -12,6 +12,13 @@ public class Voting {
     private ArrayList<Person> voters;
     private HashMap<String, HashSet<Vote>> polls;
 
+    /**
+     * Create a new voting with a given type and question.
+     * Create a voters collection and listOfVotesToChoices and choices collection.
+     *
+     * @param type type of voting.
+     * @param question question of voting.
+     */
     public Voting(int type, String question) {
         this.type = type;
         this.question = question;
@@ -19,10 +26,17 @@ public class Voting {
         polls = new HashMap<>();
     }
 
+
     public void createPoll(String question) {
         polls.put(question, new HashSet<>());
     }
 
+    /**
+     * Operate a voting.
+     *
+     * @param person person of vote.
+     * @param choice choices of vote.
+     */
     public void vote(Person person, ArrayList<String> choice) {
         JalaliCalendar jalaliCalendar = new JalaliCalendar();
         Vote vote = new Vote(person, jalaliCalendar.toString());
@@ -50,12 +64,18 @@ public class Voting {
         }
     }
 
+    /**
+     * Print voters list.
+     */
     public void getVoters() {
         for(Person temp : voters) {
             System.out.println(temp.toString());
         }
     }
 
+    /**
+     * Print vote result.
+     */
     public void printVotes() {
         int count = 1;
         for ( String temp : polls.keySet()) {
@@ -67,14 +87,26 @@ public class Voting {
         }
     }
 
+    /**
+     * get The question.
+     * @return question field.
+     */
     public String getQuestion() {
         return question;
     }
 
+    /**
+     * get The type of voting.
+     * @return type field.
+     */
     public int getType() {
         return type;
     }
 
+    /**
+     * get The voting choice collection
+     * @return choices
+     */
     public ArrayList<String> getPolls() {
         return (new ArrayList<>(polls.keySet()));
     }

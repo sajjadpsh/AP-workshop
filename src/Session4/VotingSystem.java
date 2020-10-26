@@ -6,10 +6,20 @@ public class VotingSystem {
 
     private ArrayList<Voting> votingList;
 
+    /**
+     * Create a new voting system.
+     *
+     */
     public VotingSystem() {
         votingList = new ArrayList<>();
     }
 
+    /**
+     * create a new Voting
+     * @param question question of voting
+     * @param type type of voting
+     * @param list choices of voting
+     */
     public void createVoting(String question, int type, ArrayList<String> list) {
         Voting voting = new Voting(type, question);
         for (String temp: list) {
@@ -19,12 +29,19 @@ public class VotingSystem {
         System.out.println("voting created.");
     }
 
+    /**
+     * print Voting questions.
+     */
     public void getVotingList() {
         for (Voting temp: votingList) {
             System.out.println(temp.getQuestion());
         }
     }
 
+    /**
+     * print Voting.
+     * @param i index of voting.
+     */
     public void getVoting(int i) {
         if (validIndex(i))
         {
@@ -44,6 +61,10 @@ public class VotingSystem {
         }
     }
 
+    /**
+     * Print result a voting.
+     * @param i index of voting.
+     */
     public void getResults(int i){
         if(validIndex(i)) {
             System.out.println("print result:\tvoters:");
@@ -53,6 +74,12 @@ public class VotingSystem {
         }
     }
 
+    /**
+     * Determine whether the given index is valid for the collection.
+     * Print an error message if it is not.
+     * @param index The index to be checked.
+     * @return true if the index is valid, false otherwise.
+     */
     private boolean validIndex(int index) {
         if (index < 0 || index >= votingList.size()) {
             System.out.println("Index is invalid");
