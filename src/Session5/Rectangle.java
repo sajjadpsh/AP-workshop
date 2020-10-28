@@ -13,25 +13,30 @@ public class Rectangle {
      * @param a The first side of rectangle.
      * @param b The second side of rectangle.
      */
-    public Rectangle(double a, double b) {
+    public Rectangle(double a, double b, double c, double d) {
         sides = new ArrayList<>();
         sides.add(a);
         sides.add(b);
+        sides.add(c);
+        sides.add(d);
     }
 
     /**
      * Determine square condition of rectangle.
+     *
      * @return true if the rectangle is square, false otherwise.
      */
     public boolean isSquare() {
-        if(sides.get(0).equals(sides.get(1))) {
+        if (sides.get(0).equals(sides.get(1)) && sides.get(2).equals(sides.get(3)))
+//                && sides.get(1).equals(sides.get(3)) && sides.get(2).equals(sides.get(4)))
             return true;
-        }
-        return false;
+        else
+            return false;
     }
 
     /**
      * get The sides collection.
+     *
      * @return sides field.
      */
     public ArrayList<Double> getSides() {
@@ -40,18 +45,20 @@ public class Rectangle {
 
     /**
      * calculate perimeter of shape.
+     *
      * @return perimeter
      */
     public double calculatePerimeter() {
-        return (2*( sides.get(0) + sides.get(1)));
+        return sides.get(0) + sides.get(1) + sides.get(2) + sides.get(3);
     }
 
     /**
      * calculate area of shape.
+     *
      * @return area
      */
     public double calculateArea() {
-        return (sides.get(0) * sides.get(1));
+        return sides.get(0) * sides.get(1);
     }
 
     /**
@@ -63,6 +70,7 @@ public class Rectangle {
 
     /**
      * Determine whether the given rectangle equals the rectangle.
+     *
      * @param o The rectangle to be checked.
      * @return true if the given rectangle is valid, false otherwise.
      */
@@ -78,6 +86,7 @@ public class Rectangle {
 
     /**
      * Make a hashcode depends on sides.
+     *
      * @return code
      */
     @Override
@@ -87,6 +96,7 @@ public class Rectangle {
 
     /**
      * get a String for rectangle and sides.
+     *
      * @return a String.
      */
     @Override
